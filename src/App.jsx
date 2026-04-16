@@ -1,7 +1,16 @@
+import { Route, Routes } from "react-router";
+import Explore from "./pages/Explore";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+
 function App() {
   return(
     <div>
-      <h1 className=" text-center text-3xl font-bold text-red-500">Instagram Clon</h1>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
     </div>
   )
 }
