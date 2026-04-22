@@ -1,8 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Modal from "../../components/Modal";
 
 function PostCard({username, userImage, postImage, caption }) {
 
     const [liked, setLiked] = useState(false)
+    const [showModal, setShowModal] = useState(false)
+
+    useEffect(() => {
+
+  if (!showModal) return
+
+  const handleEscape = (e) => {
+    if (e.key === "Escape") {
+      setShowModal(false)
+    }
+  }
+
+  window.addEventListener("keydown", handleEscape)
+
+  return () => {
+    window.removeEventListener("keydown", handleEscape)
+  }
+
+}, [showModal])
+    
     return(
          <div className="bg-white rounded-xl shadow-sm">
             {/* Header */}
@@ -18,7 +39,8 @@ function PostCard({username, userImage, postImage, caption }) {
             <img 
             src={postImage}
             alt="post" 
-            className="w-full"
+            className="w-full cursor-pointer"
+            onClick={()=> setShowModal(true)}
             />
             <div className="flex justify-between px-4 py-2">
                 <div className="flex gap-4">
@@ -35,10 +57,19 @@ function PostCard({username, userImage, postImage, caption }) {
                 <p>
                     <span className="font-semibold">
                         {username}
-                    </span>{" "}
+                    </span>{""}
                     {caption}
                 </p>
             </div>
+          {showModal && (
+                <Modal onClose={()=> setShowModal(false)}>
+                    <img
+                  src={postImage}
+                  alt="preview"
+                  className="w-full rounded-lg"
+                   />
+                </Modal>
+            )}  
 
     </div>
     )
