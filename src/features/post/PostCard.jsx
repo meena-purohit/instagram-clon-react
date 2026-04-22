@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Modal from "../../components/Modal";
+import CommentSection from "./CommentSection";
 
 function PostCard({username, userImage, postImage, caption }) {
 
@@ -60,6 +61,7 @@ function PostCard({username, userImage, postImage, caption }) {
                     </span>{""}
                     {caption}
                 </p>
+                <CommentSection postId={username + postImage} />
             </div>
           {showModal && (
                 <Modal onClose={()=> setShowModal(false)}>
