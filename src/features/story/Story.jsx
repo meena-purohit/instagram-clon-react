@@ -1,6 +1,6 @@
 function Story({ username, image }) {
   return (
-    <div className="flex flex-col items-center cursor-pointer">
+    <div className="flex flex-col items-center cursor-pointer flex-shrink-0">
 
       <div className="w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600">
 
