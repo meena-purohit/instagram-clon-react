@@ -7,14 +7,15 @@ import MainLayout from "./layouts/MainLayout";
 function App() {
   return(
     
-      <MainLayout>
+      
       <Routes>
+        <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/profile" element={<Profile />} />
+        </Route>
       </Routes>
-      </MainLayout>
-  
+      
   )
 }
 export default App;
