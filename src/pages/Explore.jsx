@@ -1,7 +1,9 @@
+import ExploreGride from "../features/explore/ExploreGrid";
+
 export default function Explore() {
     return(
-        <div>
-            <h1>Explore Page</h1>
+        <div className="bg-white rounded-xl shadow-sm">
+            <ExploreGride />
         </div>
     )
 }
