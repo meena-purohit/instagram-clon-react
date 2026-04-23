@@ -3,6 +3,8 @@ import Explore from "./pages/Explore";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import MainLayout from "./layouts/MainLayout";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Login from "./pages/Login";
 
 function App() {
   return(
@@ -12,7 +14,12 @@ function App() {
         <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/explore" element={<Explore />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={
+          <ProtectedRoute>
+          <Profile />
+          </ProtectedRoute>
+          } />
         </Route>
       </Routes>
       
