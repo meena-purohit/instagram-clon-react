@@ -149,6 +149,9 @@ Clone repository:
 
 git clone https://github.com/meena-purohit/instagram-clon-react
 
+# 🌐 Live Demo
+http://instagram-clon-react.vercel.app/
+
 Install dependencies:
 
 npm install
